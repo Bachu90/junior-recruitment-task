@@ -1,12 +1,15 @@
+
+<!-- SKRYPT POBIERANIA AKTUALNYCH ZADAŃ Z BAZY -->
+
 <?php
   
     try {
       
- $db = new PDO('sqlite:todoDB_PDO.sqlite');
+ $db = new PDO('sqlite:todoDB_PDO.sqlite'); //otwieranie połączenia z bazą
 
- $result = $db->query('SELECT * FROM Tasks');
+ $result = $db->query('SELECT * FROM Tasks'); //pobieranie wszystkich rekordów z bazy
  
-foreach($result as $row){
+foreach($result as $row){ //iteracja po rekordach i tworzenie elementów li listy
   if(!$row['isComplete']){
     echo('<li class="todo-item" id="'.$row['id'].'"><input type="checkbox"><p>'.$row['Task'].'</p><i class="far fa-trash-alt"></i></li>');
   }else {
@@ -15,14 +18,12 @@ foreach($result as $row){
   
 }
 
- // close the database connection
+ // zamykanie połączenia z bazą
  $db = NULL;
 }
 catch(PDOException $e)
 {
- print 'Exception : '.$e->getMessage();
+  echo('Exception : '.$e->getMessage()); //wyświetlenie błędu w przypadku niepowodzenia
 }
-  
-// checked="'.$row['isComplete'].'"
     
 ?>

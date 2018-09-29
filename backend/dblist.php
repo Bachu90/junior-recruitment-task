@@ -1,12 +1,15 @@
+
+<!-- SKRYPT DO WYŚWIETLENIA ZAWARTOŚCI BAZY DANYCH -->
+<!-- otwierany z adresu 'domena/to-do-list/backend/dblist.php' -->
 <?php
   try
   {
-    //open the database
+    //otwieranie połączenia z bazą
     $db = new PDO('sqlite:todoDb_PDO.sqlite');
 
-    //now output the data to a simple html table...
+    //wyświetlenie rekordów bazy w tabeli
     echo("<table border=1>");
-    print("<tr><td>id</td><td>Task</td><td>isComplete</td></tr>");
+    echo("<tr><td>id</td><td>Task</td><td>isComplete</td></tr>");
     $result = $db->query('SELECT * FROM Tasks');
     foreach($result as $row)
     {
@@ -16,11 +19,11 @@
     }
     echo("</table>");
 
-    // close the database connection
+    // zamykanie połączenia z bazą
     $db = NULL;
   }
   catch(PDOException $e)
   {
-    echo('Exception : '.$e->getMessage());
+    echo('Exception : '.$e->getMessage()); //wyświetlenie błędu w przypadku niepowodzenia
   }
 ?>

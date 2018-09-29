@@ -147,3 +147,10 @@ body {
         }
     }
 }
+
+@media (max-width: 576px) {
+    .wrapper {
+        width: 100%;
+        margin: 0;
+    }
+}
