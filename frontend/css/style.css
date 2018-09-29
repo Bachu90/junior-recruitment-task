@@ -62,16 +62,22 @@ body {
   font-size: 1.4rem;
   margin-left: 40px;
   margin-right: 25px;
+  color: #2e3641;
 }
 
 .wrapper main ul.todo-list li.todo-item i {
   font-size: 1.4rem;
+  color: #2e3641;
   min-width: 40px;
   height: 25px;
   margin-right: 0px;
   margin-left: auto;
   text-align: center;
   cursor: pointer;
+}
+
+.wrapper main ul.todo-list li.todo-item i:hover {
+  color: #9eb2c0;
 }
 
 .wrapper main ul.todo-list li.todo-item input:checked ~ p {
@@ -82,6 +88,10 @@ body {
 
 .wrapper main ul.todo-list li.todo-item input:checked ~ i {
   color: #9eb2c0;
+}
+
+.wrapper main ul.todo-list li.todo-item input:checked ~ i:hover {
+  color: #2e3641;
 }
 
 .wrapper .input {
@@ -106,6 +116,10 @@ body {
   cursor: pointer;
 }
 
+.wrapper .input i:hover {
+  color: #2e3641;
+}
+
 .wrapper .input input {
   width: 100%;
   display: block;
@@ -113,5 +127,6 @@ body {
   border: none;
   font-size: 1.4rem;
   padding: 0 30px;
+  color: #2e3641;
 }
 /*# sourceMappingURL=style.css.map */

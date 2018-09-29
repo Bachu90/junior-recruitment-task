@@ -72,26 +72,37 @@ body {
                     font-size: 1.4rem;
                     margin-left: 40px;
                     margin-right: 25px;
+                    color: #2e3641;
                 }
 
                 i {
                     font-size: 1.4rem;
+                    color: #2e3641;
                     min-width: 40px;
                     height: 25px;
                     margin-right: 0px;
                     margin-left: auto;
                     text-align: center;
                     cursor: pointer;
+
+                    &:hover {
+                        color: #9eb2c0;
+                    }
                 }
 
                 input:checked~p {
                     color: #9eb2c0;
                     text-decoration: line-through;
                     cursor: default;
+
                 }
 
                 input:checked~i {
                     color: #9eb2c0;
+
+                    &:hover {
+                        color: #2e3641;
+                    }
                 }
             }
         }
@@ -119,6 +130,10 @@ body {
             text-align: center;
             color: #dae4eb;
             cursor: pointer;
+
+            &:hover {
+                color: #2e3641;
+            }
         }
 
         input {
@@ -128,6 +143,7 @@ body {
             border: none;
             font-size: 1.4rem;
             padding: 0 30px;
+            color: #2e3641;
         }
     }
 }

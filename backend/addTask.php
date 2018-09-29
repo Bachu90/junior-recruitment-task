@@ -6,8 +6,9 @@
 
  $Task = $_REQUEST["Task"];
 
-
- $db->exec("INSERT INTO Tasks (Task, isComplete) VALUES ('".$Task."', 0);");
+if($Task){
+    $db->exec("INSERT INTO Tasks (Task, isComplete) VALUES ('".$Task."', 0);");
+}
 
  // close the database connection
  $db = NULL;

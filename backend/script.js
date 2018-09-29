@@ -74,3 +74,8 @@ function updateTask() {
 createDB();
 showTasks();
 document.querySelector(".input i").addEventListener("click", addTask);
+document.addEventListener("keydown", function (e) {
+    if (e.keyCode == 13) {
+        addTask();
+    }
+});
