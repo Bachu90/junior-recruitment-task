@@ -82,7 +82,6 @@ body {
 
 .wrapper main ul.todo-list li.todo-item input:checked ~ i {
   color: #9eb2c0;
-  cursor: default;
 }
 
 .wrapper .input {
@@ -104,6 +103,7 @@ body {
   margin-right: 8px;
   text-align: center;
   color: #dae4eb;
+  cursor: pointer;
 }
 
 .wrapper .input input {
@@ -113,21 +113,5 @@ body {
   border: none;
   font-size: 1.4rem;
   padding: 0 30px;
-}
-
-.wrapper .input input::-webkit-input-placeholder {
-  color: #9eb2c0;
-}
-
-.wrapper .input input:-ms-input-placeholder {
-  color: #9eb2c0;
-}
-
-.wrapper .input input::-ms-input-placeholder {
-  color: #9eb2c0;
-}
-
-.wrapper .input input::placeholder {
-  color: #9eb2c0;
 }
 /*# sourceMappingURL=style.css.map */
