@@ -1,15 +1,4 @@
-//Funkcja tworzenia bazy danych i tabeli 'Tasks'
-function createDB() {
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {}
-    }
-    xmlhttp.open("GET", "http://" + document.domain + "/to-do-list/backend/createDB.php", true);
-    xmlhttp.send();
-
-}
-
-//Pobieranie rekordów z bazy i wyświetlanie w elemencie <ul>
+//funckja pobierania rekordów z bazy i wyświetlania listy w elemencie <ul>
 function showTasks() {
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -24,8 +13,8 @@ function showTasks() {
         }
     }
 
-    //wysłanie zapytania do skryptu getTasks
-    xmlhttp.open("GET", "http://" + document.domain + "/to-do-list/backend/getTasks.php", true);
+    //wysłanie żądania CRUD typu 'read' do backendu
+    xmlhttp.open("GET", "http://" + document.domain + "/to-do-list/backend/crud.php?requestType=read", true);
     xmlhttp.send();
 
 }
@@ -45,8 +34,8 @@ function addTask() {
                 document.getElementById("input-field").value = ""; //wyczyszczenie pola tekstowego po dodaniu zadania
             }
         }
-        //wysłanie żądania do skryptu addTask o dodanie zadania z atrybutem Task zawierającym treść pola tekstowego (val)
-        xmlhttp.open("GET", "http://" + document.domain + "/to-do-list/backend/addTask.php?Task=" + val, true);
+        //wysłanie żądania CRUD typu 'create' o dodanie zadania z atrybutem Task zawierającym treść pola tekstowego (val)
+        xmlhttp.open("GET", "http://" + document.domain + "/to-do-list/backend/crud.php?requestType=create&Task=" + val, true);
         xmlhttp.send();
     }
 
@@ -62,8 +51,8 @@ function removeTask() {
             showTasks(); //wyświetlenie aktualnej listy po usunięciu zadania
         }
     }
-    //wysłanie żądania do skryptu removeTask o usunięcie zadania o określonym id (TaskId)
-    xmlhttp.open("GET", "http://" + document.domain + "/to-do-list/backend/removeTask.php?TaskId=" + taskId, true);
+    //wysłanie żądania CRUD typu 'delete' o usunięcie zadania o określonym id (TaskId)
+    xmlhttp.open("GET", "http://" + document.domain + "/to-do-list/backend/crud.php?requestType=delete&TaskId=" + taskId, true);
     xmlhttp.send();
 }
 
@@ -80,12 +69,10 @@ function updateTask() {
             showTasks(); //wyświetlenie aktualnej listy po zmianie stanu zadania
         }
     }
-    //wysłanie żądania do skryptu updateTask o zmiane stanu zadania (isComplete) o określonym id (TaskId)
-    xmlhttp.open("GET", "http://" + document.domain + "/to-do-list/backend/updateTask.php?TaskId=" + taskId + "&isComplete=" + status, true);
+    //wysłanie żądania CRUD typu 'update' o zmiane stanu zadania (isComplete) o określonym id (TaskId)
+    xmlhttp.open("GET", "http://" + document.domain + "/to-do-list/backend/crud.php?requestType=update&TaskId=" + taskId + "&isComplete=" + status, true);
     xmlhttp.send();
 }
-
-createDB(); //wywołanie funkcji - tworzenie bazy i tablicy Task jeśli nie istnieją
 
 //funkcje i eventy wywołane po załadowaniu całego DOM
 document.addEventListener("DOMContentLoaded", function () {
