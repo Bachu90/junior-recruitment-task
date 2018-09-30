@@ -39,6 +39,7 @@ body {
 }
 
 .wrapper main ul.todo-list li.todo-item {
+  max-width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,7 +56,11 @@ body {
 
 .wrapper main ul.todo-list li.todo-item input {
   display: block;
-  margin: 0 25px;
+  -ms-flex-preferred-size: 15px;
+      flex-basis: 15px;
+  min-width: 15px;
+  min-height: 15px;
+  margin: 0 24px;
 }
 
 .wrapper main ul.todo-list li.todo-item p {
@@ -63,11 +68,14 @@ body {
   margin-left: 40px;
   margin-right: 25px;
   color: #2e3641;
+  overflow: hidden;
 }
 
 .wrapper main ul.todo-list li.todo-item i {
   font-size: 1.4rem;
   color: #2e3641;
+  -ms-flex-preferred-size: 40px;
+      flex-basis: 40px;
   min-width: 40px;
   height: 25px;
   margin-right: 0px;

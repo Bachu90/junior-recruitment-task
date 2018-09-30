@@ -1,3 +1,4 @@
+//reset właściwości nadanych domyślnie przez przeglądarke
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +14,7 @@ body {
 }
 
 .wrapper {
-    width: 60vw;
+    width: 60vw; //kontener 60% ekranu użytkownika, nie więcej niż 800px
     max-width: 800px;
     margin: 10vh auto;
     background-color: #fff;
@@ -28,18 +29,19 @@ body {
             #2e3641 69px,
             #454f5c 69px,
             #454f5c 70px,
-            #2e3641 70px);
+            #2e3641 70px); //pionowe 2 linie w sekcji header
 
-        border-bottom: 1px solid #e6ebed;
+        border-bottom: 1px solid #e6ebed; //oddzielenie headera od treści borderem
 
         h1 {
             color: #dae4eb;
-            line-height: 2;
+            line-height: 2; //wysokość headera zależna od wysokości lini nagłówka h1
             font-size: 2.5rem;
-            padding-left: 100px;
+            padding-left: 100px; //odsunięcie nagłówka od lewej krawędzi
         }
     }
 
+    //główna sekcja aplikacji zawierająca liste ul z dynamicznie dodawanymi elementami li
     main {
 
         ul.todo-list {
@@ -47,11 +49,13 @@ body {
             width: 100%;
 
             li.todo-item {
+                //elementy pojedynczego zadania rozmieszczone poziomo za pomocą flexa, rozciągnięte na 100% szerokości i wyśrodkowane w pionie
+                max-width: 100%;
                 display: flex;
                 justify-content: stretch;
                 align-items: center;
                 padding: 25px 0;
-                border-bottom: 1px solid #e6ebed;
+                border-bottom: 1px solid #e6ebed; //każde pojedyncze zadanie oddzielone dolnym borderem
 
                 background-image: linear-gradient(90deg,
                     #ffffff 63px,
@@ -61,23 +65,31 @@ body {
                     #ffffff 69px,
                     #f2e3df 69px,
                     #f2e3df 70px,
-                    #ffffff 70px);
+                    #ffffff 70px); //pionowe 2 linie w każdym elemencie li, oddzielające checkbox od reszty
 
+                //checkbox
                 input {
                     display: block;
-                    margin: 0 25px;
+                    flex-basis: 15px;
+                    min-width: 15px;
+                    min-height: 15px;
+                    margin: 0 24px;
                 }
 
+                //treść zadania z marginesami po bokach
                 p {
                     font-size: 1.4rem;
                     margin-left: 40px;
                     margin-right: 25px;
                     color: #2e3641;
+                    overflow: hidden;
                 }
 
+                //kosz do usuwania zadań z minimalną szerokością 40px i przyklejony do prawej strony elementu li za pomocą margin-right
                 i {
                     font-size: 1.4rem;
                     color: #2e3641;
+                    flex-basis: 40px;
                     min-width: 40px;
                     height: 25px;
                     margin-right: 0px;
@@ -86,10 +98,11 @@ body {
                     cursor: pointer;
 
                     &:hover {
-                        color: #9eb2c0;
+                        color: #9eb2c0; //jaśniejszy kolor kosza po najechaniu
                     }
                 }
 
+                //treść zadania po zaznaczeniu checkboxa - jaśniejszy kolor i przekreślenie
                 input:checked~p {
                     color: #9eb2c0;
                     text-decoration: line-through;
@@ -97,17 +110,19 @@ body {
 
                 }
 
+                //element kosza po zaznaczeniu checkboxa - jaśniejszy kolor
                 input:checked~i {
                     color: #9eb2c0;
 
                     &:hover {
-                        color: #2e3641;
+                        color: #2e3641; //ciemniejszy kolor po najechaniu
                     }
                 }
             }
         }
     }
 
+    //sekcja dodawania nowego zadania, element plusa i pola tekstowego rozmieszczone poziomo za pomocą flexa, wyśrodkowane w pionie i stała wysokość 50px
     .input {
         background-image: linear-gradient(90deg,
             #ffffff 63px,
@@ -122,6 +137,7 @@ body {
         display: flex;
         align-items: center;
 
+        //plus z minimalną szerokością 63px i marginesem z prawej strony
         i {
             font-size: 1.4rem;
             flex-basis: 63px;
@@ -132,10 +148,11 @@ body {
             cursor: pointer;
 
             &:hover {
-                color: #2e3641;
+                color: #2e3641; //ciemniejszy kolor po najechaniu
             }
         }
 
+        //pole tekstowe rozciągnięte na 100% pozostałego miejsca i 100% wysokości rodzica, z marginesem wewnętrznym po bokach 30px
         input {
             width: 100%;
             display: block;
@@ -148,6 +165,7 @@ body {
     }
 }
 
+//rozciągnięcie kontenera na 100% szerokości ekranu użytkownika i usunięcie marginesów dla urządzeń mobilnych - zwiększa czytelność i zapobiega wyjeżdżaniu elementów poza kontener
 @media (max-width: 576px) {
     .wrapper {
         width: 100%;
